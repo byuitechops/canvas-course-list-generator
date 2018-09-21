@@ -1,17 +1,19 @@
 {
-  "name": "canvas-quiz-getter",
+  "name": "canvas-course-list-generator",
   "version": "1.0.0",
-  "description": "Get canvas quizzes",
+  "description": "Generates a list of courses in either console or CSV",
   "main": "index.js",
   "scripts": {
     "test": "test",
     "start": "node index.js"
   },
-  "author": "Seth Childers and Benjamin Earl",
+  "author": "Sam McGrath",
   "license": "MIT",
   "dependencies": {
     "canvas-api-wrapper": "^3.3.3",
+    "chalk": "^2.4.1",
     "d3-dsv": "^1.0.10",
+    "enquirer": "^1.0.3",
     "fs": "0.0.1-security"
   }
 }
