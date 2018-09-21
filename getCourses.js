@@ -1,10 +1,10 @@
 const canvas = require('canvas-api-wrapper');
 const d3 = require('d3-dsv')
 const fs = require('fs');
-const prompter = require('./cli').prompter;
+const moment = require('moment');
+const cli = require('./cli');
 
 async function getAllCourses(userId) {
-    // get all courses from the Master Courses subaccount (i.e. 42)
     let courses = await canvas.get(`/api/v1/accounts/${userId}/courses`, {
         sort: 'course_name',
         'include[]': 'subaccount'
@@ -16,17 +16,33 @@ async function getAllCourses(userId) {
 }
 
 async function retrieve() {
-    let results = await prompter();
+    let results = await cli.prompt();
     let courses = await getAllCourses(results.id);
 
     // TODO: figure out which categories need to go into the CSV.
-    if (results.path === 'y') {
-        console.log('print');
+    if (results.path[0] === 'yes') {
+        let headers = [
+            'Name',
+            'Course Code',
+            'ID',
+            'Is Public?'
+        ];
+
+        let courseObj = courses.map(course => {
+            return {
+                'Name': course.name,
+                'Course Code': course.course_code,
+                'ID': course.id,
+                'Is Public?': course.is_public
+            };
+        });
+
+        let csvData = d3.csvFormat(courseObj, headers);
+        fs.writeFileSync('Canvas_Master_Courses.csv', csvData);
+        console.log(`Saved as Canvas_Master_Courses.csv in ${__dirname}`);
     } else {
         return courses;
     }
-
-    return {};
 }
 
 

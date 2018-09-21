@@ -4,8 +4,8 @@
   "description": "Generates a list of courses in either console or CSV",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "start": "node index.js"
+    "test": "node test.js",
+    "start": "node getCourses.js"
   },
   "author": "Sam McGrath",
   "license": "MIT",
@@ -14,6 +14,8 @@
     "chalk": "^2.4.1",
     "d3-dsv": "^1.0.10",
     "enquirer": "^1.0.3",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "moment": "^2.22.2",
+    "prompt-checkbox": "^2.2.0"
   }
 }
