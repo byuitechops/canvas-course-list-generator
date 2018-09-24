@@ -33,5 +33,5 @@ function prompt() {
 }
 
 module.exports = {
-      prompter
+      prompt
 }

@@ -2,10 +2,10 @@
   "name": "canvas-course-list-generator",
   "version": "1.0.0",
   "description": "Generates a list of courses in either console or CSV",
-  "main": "index.js",
+  "main": "getCourses.js",
   "scripts": {
-    "test": "node test.js",
-    "start": "node getCourses.js"
+    "start": "node getCourses.js",
+    "test": "node test.js"
   },
   "author": "Sam McGrath",
   "license": "MIT",
