@@ -5,6 +5,12 @@ const fs = require('fs');
 const enquirer = new Enquirer();
 enquirer.register('checkbox', require('prompt-checkbox'));
 
+/**
+ * prompt
+ * 
+ * This function utilizes the enquirer npm package to retrieve 
+ * input from the user in command line.
+ */
 function prompt() {
       return new Promise((resolve, reject) => {
             enquirer.question({
