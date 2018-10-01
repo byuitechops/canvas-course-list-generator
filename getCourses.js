@@ -1,5 +1,5 @@
 const canvas = require('canvas-api-wrapper');
-canvas.subdomain = 'byui.test';
+//canvas.subdomain = 'byui.test';
 const d3 = require('d3-dsv')
 const fs = require('fs');
 const moment = require('moment');
