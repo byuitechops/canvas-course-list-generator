@@ -1,4 +1,5 @@
 const canvas = require('canvas-api-wrapper');
+canvas.subdomain = 'byui.test';
 const d3 = require('d3-dsv')
 const fs = require('fs');
 const moment = require('moment');
@@ -52,9 +53,12 @@ async function retrieve() {
         let csvData = d3.csvFormat(courseObj, headers);
         fs.writeFileSync('Canvas_Master_Courses.csv', csvData);
         console.log(`Saved as Canvas_Master_Courses.csv in ${__dirname}`);
+        return [];
     } else {
         return courses;
     }
+
+    return [];
 }
 
 

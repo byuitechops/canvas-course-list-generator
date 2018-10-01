@@ -12,32 +12,32 @@ enquirer.register('checkbox', require('prompt-checkbox'));
  * input from the user in command line.
  */
 function prompt() {
-      return new Promise((resolve, reject) => {
-            enquirer.question({
-                  name: 'userId',
-                  type: 'input',
-                  message: 'Enter subaccount here: '
-            });
-
-            enquirer.question({
-                  name: 'path',
-                  type: 'checkbox',
-                  message: 'Store in CSV?',
-                  radio: true,
-                  choices: ['yes', 'no']
-            });
-
-            enquirer.ask()
-                  .then(answers => {
-                        resolve({
-                              'id': answers.userId,
-                              'path': answers.path
-                        });
-                  })
-                  .catch(reject);
+   return new Promise((resolve, reject) => {
+      enquirer.question({
+         name: 'userId',
+         type: 'input',
+         message: 'Enter subaccount here: '
       });
+
+      enquirer.question({
+         name: 'path',
+         type: 'checkbox',
+         message: 'Store in CSV?',
+         radio: true,
+         choices: ['yes', 'no']
+      });
+
+      enquirer.ask()
+         .then(answers => {
+            resolve({
+               'id': answers.userId,
+               'path': answers.path
+            });
+         })
+         .catch(reject);
+   });
 }
 
 module.exports = {
-      prompt
+   prompt
 }
