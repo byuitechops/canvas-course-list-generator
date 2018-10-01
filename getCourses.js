@@ -7,19 +7,19 @@ const cli = require('./cli');
 
 /**
  * getAllCourses 
- * @param {int} userId 
+ * @param {int} accountId 
  * 
  * This function gets the courses from Canvas
  */
-async function getAllCourses(userId) {
-    let courses = await canvas.get(`/api/v1/accounts/${userId}/courses`, {
+async function getAllCourses(accountId) {
+    let courses = await canvas.get(`/api/v1/accounts/${accountId}/courses`, {
         sort: 'course_name',
         'include[]': 'subaccount'
     });
 
     // ensure that courses are exactly what we need since Canvas is a little
     // sketchy when it comes to ${userId}/courses
-    return courses.filter(course => course.account_id === parseInt(userId));
+    return courses.filter(course => course.account_id === parseInt(accountId, '10'));
 }
 
 /**
